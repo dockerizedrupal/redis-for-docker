@@ -15,6 +15,25 @@ class redis_supervisor {
 
 class redis {
   include redis_supervisor
+
+  exec { 'wget http://download.redis.io/releases/redis-2.8.14.tar.gz':
+    cwd => '/tmp',
+    path => ['/usr/bin']
+  }
+
+  exec { 'tar xzf redis-2.8.14.tar.gz':
+    cwd => '/tmp',
+    path => ['/bin'],
+    require => Exec['wget http://download.redis.io/releases/redis-2.8.14.tar.gz']
+  }
+
+  exec { '/bin/bash -c "cd /tmp/redis-2.8.14 && make"':
+    require => Exec['tar xzf redis-2.8.14.tar.gz']
+  }
+
+  exec { '/bin/bash -c "cd /tmp/redis-2.8.14 && make install"':
+    require => Exec['/bin/bash -c "cd /tmp/redis-2.8.14 && make"']
+  }
 }
 
 node default {
