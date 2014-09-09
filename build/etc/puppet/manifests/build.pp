@@ -16,6 +16,21 @@ class redis_supervisor {
 class redis {
   include redis_supervisor
 
+  exec { 'mkdir -p /redis-2.8.14/conf.d':
+    path => ['/bin']
+  }
+
+  file { '/redis-2.8.14/conf.d/redis.conf':
+    ensure => present,
+    source => '/tmp/build/redis-2.8.14/conf.d/redis.conf',
+    mode => 644,
+    require => Exec['mkdir -p /redis-2.8.14/conf.d']
+  }
+
+  exec { 'mkdir -p /redis-2.8.14/data':
+    path => ['/bin']
+  }
+
   exec { 'wget http://download.redis.io/releases/redis-2.8.14.tar.gz':
     cwd => '/tmp',
     path => ['/usr/bin']
