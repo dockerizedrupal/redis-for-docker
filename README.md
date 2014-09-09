@@ -7,6 +7,7 @@ Run the container
     sudo docker run \
       --name redis2814 \
       --net host \
+      -v /var/redis-2.8.14/data:/redis-2.8.14/data \
       -d \
       simpledrupalcloud/redis:2.8.14
 
