@@ -7,7 +7,6 @@ Run the container
     CONTAINER=redis2814 && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -p 127.0.0.1::22 \
       -p 6379:6379 \
       -v /var/redis-2.8.14/data:/redis-2.8.14/data \
       -d \
