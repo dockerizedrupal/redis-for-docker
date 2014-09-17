@@ -4,7 +4,7 @@ docker-redis-2.8.14
 Run the container
 -----------------
 
-    CONTAINER=redis2814 && sudo docker run \
+    CONTAINER=redis && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 6379:6379 \
@@ -15,7 +15,7 @@ Run the container
 Build the image
 ---------------
 
-    TMP=$(mktemp -d) \
+    TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-redis.git "${TMP}" \
       && cd "${TMP}" \
       && git checkout 2.8.14 \
