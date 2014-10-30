@@ -10,6 +10,8 @@ RUN chmod +x /tmp/build/build.sh
 RUN /tmp/build/build.sh
 RUN rm -rf /tmp/*
 
+VOLUME ["/redis-2.8.14/data"]
+
 EXPOSE 6379
 
 ENTRYPOINT ["/run.sh"]
