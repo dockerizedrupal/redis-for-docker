@@ -41,6 +41,7 @@
 
 ### Run the container
 
+
     CONTAINER="redis" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
