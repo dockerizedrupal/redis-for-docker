@@ -1,6 +1,6 @@
 redis:
   build: .
-  image: simpledrupalcloud/redis:2.8.14-dev
+  image: simpledrupalcloud/redis:2.8.14
   hostname: redis
   ports:
     - "6379:6379"
