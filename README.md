@@ -1,5 +1,13 @@
 # docker-redis-2.8.14-dev
 
+## Fig
+
+    TMP="$(mktemp -d)" \
+      && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-redis.git "${TMP}" \
+      && cd "${TMP}" \
+      && git checkout 2.8.14-dev \
+      && fig up
+
 ## Run the container
 
     CONTAINER="redis" && sudo docker run \
