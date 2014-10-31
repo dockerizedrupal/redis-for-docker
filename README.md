@@ -1,8 +1,6 @@
-docker-redis
-============
+# docker-redis
 
-Redis 2.8.14
-------------
+## Redis 2.8.14
 
 ### Run the container
 
