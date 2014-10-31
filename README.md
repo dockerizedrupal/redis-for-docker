@@ -1,6 +1,6 @@
 # docker-redis
 
-## Redis 2.8.14 (branch 2.8.14)
+## Branch 2.8.14)
 
 ### Fig
 
@@ -29,7 +29,7 @@
       && sudo docker build -t simpledrupalcloud/redis:2.8.14 . \
       && cd -
 
-## Redis 2.8.14 (branch 2.8.14-dev)
+## Branch 2.8.14-dev)
 
 ### Fig
 
