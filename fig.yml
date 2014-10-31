@@ -1,4 +1,5 @@
 redis:
+  build: .
   image: simpledrupalcloud/redis:2.8.14-dev
   hostname: redis
   ports:
