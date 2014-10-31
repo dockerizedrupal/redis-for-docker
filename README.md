@@ -2,7 +2,7 @@
 
 ## Run the container
 
-    CONTAINER="redis-dev" && sudo docker run \
+    CONTAINER="redis" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 6379:6379 \

@@ -1,20 +1,6 @@
-class packages {
-  package {[
-      'build-essential'
-    ]:
-    ensure => present
-  }
-}
-
-class redis_supervisor {
-  file { '/etc/supervisor/conf.d/redis.conf':
-    ensure => present,
-    source => '/tmp/build/etc/supervisor/conf.d/redis.conf'
-  }
-}
-
 class redis {
-  include redis_supervisor
+  require redis::packages
+  require redis::supervisor
 
   exec { 'mkdir -p /redis-2.8.14/conf.d':
     path => ['/bin']
@@ -22,7 +8,7 @@ class redis {
 
   file { '/redis-2.8.14/conf.d/redis.conf':
     ensure => present,
-    source => '/tmp/build/redis-2.8.14/conf.d/redis.conf',
+    source => 'puppet:///modules/redis/redis-2.8.14/conf.d/redis.conf',
     mode => 644,
     require => Exec['mkdir -p /redis-2.8.14/conf.d']
   }
@@ -48,23 +34,5 @@ class redis {
 
   exec { '/bin/bash -c "cd /tmp/redis-2.8.14 && make install"':
     require => Exec['/bin/bash -c "cd /tmp/redis-2.8.14 && make"']
-  }
-}
-
-node default {
-  file { '/run.sh':
-    ensure => present,
-    source => '/tmp/build/run.sh',
-    mode => 755
-  }
-
-  include packages
-  include redis
-
-  Class['packages'] -> Class['redis']
-
-  exec { 'apt-get update':
-    path => ['/usr/bin'],
-    before => Class['packages']
   }
 }

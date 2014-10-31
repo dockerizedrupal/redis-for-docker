@@ -4,14 +4,15 @@ MAINTAINER Simple Drupal Cloud <support@simpledrupalcloud.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-ADD ./build /tmp/build
+ADD ./src /src
 
-RUN chmod +x /tmp/build/build.sh
-RUN /tmp/build/build.sh
+RUN chmod +x /src/build.sh
+RUN /src/build.sh
+
 RUN rm -rf /tmp/*
 
 VOLUME ["/redis-2.8.14/data"]
 
 EXPOSE 6379
 
-ENTRYPOINT ["/run.sh"]
+ENTRYPOINT ["/src/run.sh"]

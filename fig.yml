@@ -1,0 +1,7 @@
+redis:
+  image: simpledrupalcloud/redis:2.8.14-dev
+  hostname: redis
+  ports:
+    - "6379:6379"
+  volumes:
+    - /var/redis-2.8.14/data:/redis-2.8.14/data
