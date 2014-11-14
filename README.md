@@ -7,12 +7,18 @@ A [Docker](https://docker.com/) container for [Redis](http://redis.io/).
 ### Run the container
 
 Using the `docker` command:
+    
+    CONTAINER="data" && sudo docker run \
+      --name "${CONTAINER}" \
+      -h "${CONTAINER}" \
+      -v /var/docker/redis-2.8.14/data:/redis-2.8.14/data \
+      simpledrupalcloud/data:latest
       
     CONTAINER="redis" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 6379:6379 \
-      -v /var/docker/redis-2.8.14/data:/redis-2.8.14/data \
+      --volumes-from data \
       -d \
       simpledrupalcloud/redis:2.8.14
       
@@ -38,12 +44,18 @@ Using the `fig` command
 ### Run the container
 
 Using the `docker` command:
-      
+    
+    CONTAINER="data" && sudo docker run \
+      --name "${CONTAINER}" \
+      -h "${CONTAINER}" \
+      -v /var/docker/redis-2.8.14/data:/redis-2.8.14/data \
+      simpledrupalcloud/data:dev
+    
     CONTAINER="redis" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 6379:6379 \
-      -v /var/docker/redis-2.8.14/data:/redis-2.8.14/data \
+      --volumes-from data \
       -d \
       simpledrupalcloud/redis:2.8.14-dev
       
