@@ -2,7 +2,7 @@
 
 A [Docker](https://docker.com/) container for [Redis](http://redis.io/).
 
-## Redis 2.8.14 (STABLE)
+## Redis 2.8.14 (STABLE BRANCH)
 
 ### Run the container
 
@@ -33,7 +33,7 @@ Using the `fig` command
       && sudo docker build -t simpledrupalcloud/redis:2.8.14 . \
       && cd -
 
-## Redis 2.8.14 (DEVELOPMENT)
+## Redis 2.8.14 (DEVELOPMENT BRANCH)
 
 ### Run the container
 
