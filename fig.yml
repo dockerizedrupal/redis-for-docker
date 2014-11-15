@@ -4,9 +4,9 @@ redis:
   ports:
     - "6379:6379"
   volumes_from:
-    - data
-data:
+    - redisdata
+redisdata:
   image: simpledrupalcloud/data
-  hostname: data
+  hostname: redisdata
   volumes:
     - ./.docker/redis-2.8.14/data:/redis-2.8.14/data
