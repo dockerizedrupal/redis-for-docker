@@ -8,7 +8,7 @@ A [Docker](https://docker.com/) container for [Redis](http://redis.io/).
 
 Using the `docker` command:
     
-    CONTAINER="data" && sudo docker run \
+    CONTAINER="redisdata" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v $(pwd)/.docker/redis-2.8.14/data:/redis-2.8.14/data \
@@ -18,7 +18,7 @@ Using the `docker` command:
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 6379:6379 \
-      --volumes-from data \
+      --volumes-from redisdata \
       -d \
       simpledrupalcloud/redis:2.8.14
       
@@ -45,7 +45,7 @@ Using the `fig` command
 
 Using the `docker` command:
     
-    CONTAINER="data" && sudo docker run \
+    CONTAINER="redisdata" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v $(pwd)/.docker/redis-2.8.14/data:/redis-2.8.14/data \
@@ -55,7 +55,7 @@ Using the `docker` command:
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 6379:6379 \
-      --volumes-from data \
+      --volumes-from redisdata \
       -d \
       simpledrupalcloud/redis:2.8.14-dev
       
