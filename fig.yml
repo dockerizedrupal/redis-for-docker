@@ -9,4 +9,4 @@ data:
   image: simpledrupalcloud/data:dev
   hostname: data
   volumes:
-    - /var/docker/redis-2.8.14/data:/redis-2.8.14/data
+    - ./.docker/redis-2.8.14/data:/redis-2.8.14/data
