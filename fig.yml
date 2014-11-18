@@ -6,7 +6,7 @@ redis:
   volumes_from:
     - redisdata
 redisdata:
-  image: simpledrupalcloud/data
+  image: simpledrupalcloud/data:latest
   hostname: redisdata
   volumes:
     - ./.dev/redis/data:/redis/data
