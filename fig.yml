@@ -1,12 +1,12 @@
 redis:
-  image: simpledrupalcloud/redis:latest
+  image: simpledrupalcloud/redis:dev
   hostname: redis
   ports:
     - "6379:6379"
   volumes_from:
     - redisdata
 redisdata:
-  image: simpledrupalcloud/data
+  image: simpledrupalcloud/data:dev
   hostname: redisdata
   volumes:
     - ./.dev/redis/data:/redis/data
