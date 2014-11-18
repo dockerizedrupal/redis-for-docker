@@ -11,7 +11,7 @@ RUN /src/build.sh
 
 RUN rm -rf /tmp/*
 
-VOLUME ["/redis-2.8.14/data"]
+VOLUME ["/redis/data"]
 
 EXPOSE 6379
 

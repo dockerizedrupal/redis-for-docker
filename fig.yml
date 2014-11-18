@@ -1,5 +1,5 @@
 redis:
-  image: simpledrupalcloud/redis:2.8.14
+  image: simpledrupalcloud/redis:latest
   hostname: redis
   ports:
     - "6379:6379"
@@ -9,4 +9,4 @@ redisdata:
   image: simpledrupalcloud/data
   hostname: redisdata
   volumes:
-    - ./.docker/redis-2.8.14/data:/redis-2.8.14/data
+    - ./.dev/redis/data:/redis/data
