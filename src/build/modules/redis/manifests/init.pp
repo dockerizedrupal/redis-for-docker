@@ -17,22 +17,22 @@ class redis {
     path => ['/bin']
   }
 
-  exec { 'wget http://download.redis.io/releases/redis-2.8.14.tar.gz':
-    cwd => '/tmp',
-    path => ['/usr/bin']
+  file { '/tmp/redis-2.8.17.tar.gz':
+    ensure => present,
+    source => 'puppet:///modules/redis/tmp/redis-2.8.17.tar.gz'
   }
 
-  exec { 'tar xzf redis-2.8.14.tar.gz':
+  exec { 'tar xzf redis-2.8.17.tar.gz':
     cwd => '/tmp',
     path => ['/bin'],
-    require => Exec['wget http://download.redis.io/releases/redis-2.8.14.tar.gz']
+    require => File['/tmp/redis-2.8.17.tar.gz']
   }
 
-  exec { '/bin/bash -c "cd /tmp/redis-2.8.14 && make"':
-    require => Exec['tar xzf redis-2.8.14.tar.gz']
+  exec { '/bin/bash -c "cd /tmp/redis-2.8.17 && make"':
+    require => Exec['tar xzf redis-2.8.17.tar.gz']
   }
 
-  exec { '/bin/bash -c "cd /tmp/redis-2.8.14 && make install"':
-    require => Exec['/bin/bash -c "cd /tmp/redis-2.8.14 && make"']
+  exec { '/bin/bash -c "cd /tmp/redis-2.8.17 && make install"':
+    require => Exec['/bin/bash -c "cd /tmp/redis-2.8.17 && make"']
   }
 }
