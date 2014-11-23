@@ -29,10 +29,12 @@ class redis {
   }
 
   exec { '/bin/bash -c "cd /tmp/redis-2.8.17 && make"':
+    timeout => 0,
     require => Exec['tar xzf redis-2.8.17.tar.gz']
   }
 
   exec { '/bin/bash -c "cd /tmp/redis-2.8.17 && make install"':
+    timeout => 0,
     require => Exec['/bin/bash -c "cd /tmp/redis-2.8.17 && make"']
   }
 }
