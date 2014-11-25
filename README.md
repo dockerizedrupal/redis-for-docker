@@ -11,7 +11,7 @@ Using the `docker` command:
     CONTAINER="redisdata" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -v $(pwd)/.docker/redis/data:/redis/data \
+      -v /redis/data \
       simpledrupalcloud/data:latest
 
     CONTAINER="redis" && sudo docker run \
