@@ -27,7 +27,7 @@ Using the `fig` command
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-redis.git "${TMP}" \
       && cd "${TMP}" \
-      && fig up
+      && sudo fig up
 
 ### Build the image
       
