@@ -39,6 +39,22 @@ Using the `fig` command
       && sudo docker build -t simpledrupalcloud/redis:dev . \
       && cd -
 
+## Back up Redis data
+
+    sudo docker run \
+      --rm \
+      --volumes-from redisdata \
+      -v $(pwd):/backup \
+      busybox:latest tar czvf /backup/redisdata.tar.gz /redis/data
+
+## Restore Redis data from a backup
+
+    sudo docker run \
+      --rm \
+      --volumes-from redisdata \
+      -v $(pwd):/backup \
+      busybox:latest tar xzvf /backup/redisdata.tar.gz
+
 ## License
 
 **MIT**
