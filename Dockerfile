@@ -20,4 +20,4 @@ VOLUME ["/redis/data"]
 
 EXPOSE 6379
 
-ENTRYPOINT ["/src/run.sh"]
+CMD ["/src/run.sh"]
