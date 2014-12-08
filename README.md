@@ -2,9 +2,7 @@
 
 A [Docker](https://docker.com/) container for [Redis](http://redis.io/).
 
-## Redis (DEVELOPMENT BRANCH)
-
-### Run the container
+## Run the container
 
 Using the `docker` command:
 
@@ -30,7 +28,7 @@ Using the `fig` command
       && git checkout dev \
       && sudo fig up
 
-### Build the image
+## Build the image
       
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-redis.git "${TMP}" \
@@ -45,7 +43,7 @@ Using the `fig` command
       --rm \
       --volumes-from redisdata \
       -v $(pwd):/backup \
-      busybox:latest tar czvf /backup/redisdata.tar.gz /redis/data
+      simpledrupalcloud/data:dev tar czvf /backup/redisdata.tar.gz /redis/data
 
 ## Restore Redis data from a backup
 
@@ -53,7 +51,7 @@ Using the `fig` command
       --rm \
       --volumes-from redisdata \
       -v $(pwd):/backup \
-      busybox:latest tar xzvf /backup/redisdata.tar.gz
+      simpledrupalcloud/data:dev tar xzvf /backup/redisdata.tar.gz
 
 ## License
 
