@@ -41,7 +41,7 @@ Using the `fig` command
       --rm \
       --volumes-from redisdata \
       -v $(pwd):/backup \
-      simpledrupalcloud/data:latest tar czvf /backup/redisdata.tar.gz /redis/data
+      simpledrupalcloud/base:latest tar czvf /backup/redisdata.tar.gz /redis/data
 
 ## Restore Redis data from a backup
 
@@ -49,7 +49,7 @@ Using the `fig` command
       --rm \
       --volumes-from redisdata \
       -v $(pwd):/backup \
-      simpledrupalcloud/data:latest tar xzvf /backup/redisdata.tar.gz
+      simpledrupalcloud/base:latest tar xzvf /backup/redisdata.tar.gz
 
 ## License
 
