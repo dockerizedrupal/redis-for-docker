@@ -9,4 +9,4 @@ redisdata:
   image: simpledrupalcloud/data:latest
   hostname: redisdata
   volumes:
-    - /redis/data
+    - /redis

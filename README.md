@@ -9,7 +9,7 @@ Using the `docker` command:
     CONTAINER="redisdata" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -v /redis/data \
+      -v /redis \
       simpledrupalcloud/data:latest
 
     CONTAINER="redis" && sudo docker run \
@@ -41,7 +41,7 @@ Using the `fig` command
       --rm \
       --volumes-from redisdata \
       -v $(pwd):/backup \
-      simpledrupalcloud/base:latest tar czvf /backup/redisdata.tar.gz /redis/data
+      simpledrupalcloud/base:latest tar czvf /backup/redisdata.tar.gz /redis
 
 ## Restore Redis data from a backup
 

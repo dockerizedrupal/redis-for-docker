@@ -12,7 +12,7 @@ RUN apt-get update
 RUN /src/build.sh
 RUN /src/clean.sh
 
-VOLUME ["/redis/data"]
+VOLUME ["/redis"]
 
 EXPOSE 6379
 
