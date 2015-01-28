@@ -2,19 +2,10 @@ class redis {
   require redis::packages
   require redis::supervisor
 
-  exec { 'mkdir -p /redis/conf.d':
-    path => ['/bin']
-  }
-
-  file { '/redis/conf.d/redis.conf':
+  file { '/root/redis.conf':
     ensure => present,
-    source => 'puppet:///modules/redis/redis/conf.d/redis.conf',
-    mode => 644,
-    require => Exec['mkdir -p /redis/conf.d']
-  }
-
-  exec { 'mkdir -p /redis/data':
-    path => ['/bin']
+    source => 'puppet:///modules/redis/root/redis.conf',
+    mode => 644
   }
 
   file { '/tmp/redis-2.8.17.tar.gz':
