@@ -1,16 +1,15 @@
-FROM simpledrupalcloud/base:latest
+FROM dockerizedrupal/base-debian-jessie:1.0.3
 
-MAINTAINER Simple Drupal Cloud <support@simpledrupalcloud.com>
+MAINTAINER Jürgen Viljaste <j.viljaste@gmail.com>
 
 ENV TERM xterm
-ENV DEBIAN_FRONTEND noninteractive
 
 ADD ./src /src
 
-RUN apt-get update && /src/build.sh && /src/clean.sh
+RUN /src/entrypoint.sh build
 
 VOLUME ["/redis"]
 
 EXPOSE 6379
 
-CMD ["/src/run.sh"]
+ENTRYPOINT ["/src/entrypoint.sh", "run"]

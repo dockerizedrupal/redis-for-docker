@@ -6,50 +6,36 @@ A [Docker](https://docker.com/) container for [Redis](http://redis.io/).
 
 Using the `docker` command:
 
-    CONTAINER="redisdata" && sudo docker run \
+    CONTAINER="redis-data" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /redis \
-      simpledrupalcloud/data:latest
+      dockerizedrupal/data:1.0.3
 
     CONTAINER="redis" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 6379:6379 \
-      --volumes-from redisdata \
+      --volumes-from redis-data \
       -d \
-      simpledrupalcloud/redis:latest
+      dockerizedrupal/redis:1.0.0
       
-Using the `fig` command
+Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
-      && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-redis.git "${TMP}" \
+      && git clone https://github.com/dockerizedrupal/docker-redis.git "${TMP}" \
       && cd "${TMP}" \
-      && sudo fig up
+      && git checkout 1.0.0 \
+      && sudo docker-compose up
 
 ## Build the image
       
     TMP="$(mktemp -d)" \
-      && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-redis.git "${TMP}" \
+      && git clone https://github.com/dockerizedrupal/docker-redis.git "${TMP}" \
       && cd "${TMP}" \
-      && sudo docker build -t simpledrupalcloud/redis:latest . \
+      && git checkout 1.0.0 \
+      && sudo docker build -t dockerizedrupal/redis:1.0.0 . \
       && cd -
-
-## Back up Redis data
-
-    sudo docker run \
-      --rm \
-      --volumes-from redisdata \
-      -v $(pwd):/backup \
-      simpledrupalcloud/base:latest tar czvf /backup/redisdata.tar.gz /redis
-
-## Restore Redis data from a backup
-
-    sudo docker run \
-      --rm \
-      --volumes-from redisdata \
-      -v $(pwd):/backup \
-      simpledrupalcloud/base:latest tar xzvf /backup/redisdata.tar.gz
 
 ## License
 

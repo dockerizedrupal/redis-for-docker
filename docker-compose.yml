@@ -1,0 +1,12 @@
+redis:
+  image: dockerizedrupal/redis:1.0.0
+  hostname: redis
+  ports:
+    - "6379:6379"
+  volumes_from:
+    - redis-data
+redis-data:
+  image: dockerizedrupal/data:1.0.3
+  hostname: redis-data
+  volumes:
+    - /redis

@@ -1,5 +1,7 @@
+.idea
 .git
 .gitignore
 README.md
 LICENSE.md
-fig.yml
+docker-compose.yml
+VERSION.md
