@@ -1,5 +1,5 @@
 redis:
-  image: dockerizedrupal/redis:1.0.1
+  image: dockerizedrupal/redis:1.0.2
   hostname: redis
   ports:
     - "6379:6379"
