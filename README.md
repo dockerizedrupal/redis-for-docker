@@ -17,15 +17,16 @@ Using the `docker` command:
       -h "${CONTAINER}" \
       -p 6379:6379 \
       --volumes-from redis-data \
+      -e TIMEZONE="Etc/UTC" \
       -d \
-      dockerizedrupal/redis:1.0.0
+      dockerizedrupal/redis:1.0.1
       
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-redis.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.0 \
+      && git checkout 1.0.1 \
       && sudo docker-compose up
 
 ## Build the image
@@ -33,8 +34,8 @@ Using the `docker-compose` command
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-redis.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.0 \
-      && sudo docker build -t dockerizedrupal/redis:1.0.0 . \
+      && git checkout 1.0.1 \
+      && sudo docker build -t dockerizedrupal/redis:1.0.1 . \
       && cd -
 
 ## License
