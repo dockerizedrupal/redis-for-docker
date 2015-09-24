@@ -4,8 +4,6 @@ A [Docker](https://docker.com/) container for [Redis](http://redis.io/).
 
 ## Run the container
 
-Using the `docker` command:
-
     CONTAINER="redis-data" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
@@ -19,24 +17,20 @@ Using the `docker` command:
       --volumes-from redis-data \
       -e TIMEZONE="Etc/UTC" \
       -d \
-      dockerizedrupal/redis:1.0.2
-      
-Using the `docker-compose` command
-
-    TMP="$(mktemp -d)" \
-      && git clone https://github.com/dockerizedrupal/docker-redis.git "${TMP}" \
-      && cd "${TMP}" \
-      && git checkout 1.0.2 \
-      && sudo docker-compose up
+      dockerizedrupal/redis:1.0.3
 
 ## Build the image
       
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-redis.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.2 \
-      && sudo docker build -t dockerizedrupal/redis:1.0.2 . \
+      && git checkout 1.0.3 \
+      && sudo docker build -t dockerizedrupal/redis:1.0.3 . \
       && cd -
+
+## Changing the container behaviour on runtime through environment variables
+
+    // TODO
 
 ## License
 
