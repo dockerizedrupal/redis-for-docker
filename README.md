@@ -1,6 +1,8 @@
 # docker-redis
 
-A Docker image for [Redis](http://redis.io/) that is used in the [Dockerized Drupal](https://dockerizedrupal.com/) project.
+A Docker image for [Redis](http://redis.io/).
+
+This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) initiative.
 
 ## Run the container
 
