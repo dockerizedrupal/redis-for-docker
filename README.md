@@ -1,6 +1,6 @@
 # docker-redis
 
-A [Docker](https://docker.com/) container for [Redis](http://redis.io/).
+A Docker image for [Redis](http://redis.io/) that is used in the [Dockerized Drupal](https://dockerizedrupal.com/) project.
 
 ## Run the container
 
@@ -8,7 +8,7 @@ A [Docker](https://docker.com/) container for [Redis](http://redis.io/).
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /redis \
-      dockerizedrupal/data:1.0.3
+      dockerizedrupal/data:1.1.0
 
     CONTAINER="redis" && sudo docker run \
       --name "${CONTAINER}" \
@@ -17,15 +17,15 @@ A [Docker](https://docker.com/) container for [Redis](http://redis.io/).
       --volumes-from redis-data \
       -e TIMEZONE="Etc/UTC" \
       -d \
-      dockerizedrupal/redis:1.0.3
+      dockerizedrupal/redis:1.1.0
 
 ## Build the image
       
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-redis.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.3 \
-      && sudo docker build -t dockerizedrupal/redis:1.0.3 . \
+      && git checkout 1.1.0 \
+      && sudo docker build -t dockerizedrupal/redis:1.1.0 . \
       && cd -
 
 ## Changing the container behaviour on runtime through environment variables
