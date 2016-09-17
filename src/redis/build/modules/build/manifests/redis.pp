@@ -8,22 +8,22 @@ class build::redis {
     mode => 644
   }
 
-  file { '/tmp/redis-3.0.3.tar.gz':
+  file { '/tmp/redis-3.2.3.tar.gz':
     ensure => present,
-    source => 'puppet:///modules/build/tmp/redis-3.0.3.tar.gz'
+    source => 'puppet:///modules/build/tmp/redis-3.2.3.tar.gz'
   }
 
-  bash_exec { 'cd /tmp && tar xzf redis-3.0.3.tar.gz':
-    require => File['/tmp/redis-3.0.3.tar.gz']
+  bash_exec { 'cd /tmp && tar xzf redis-3.2.3.tar.gz':
+    require => File['/tmp/redis-3.2.3.tar.gz']
   }
 
-  bash_exec { 'cd /tmp/redis-3.0.3 && make':
+  bash_exec { 'cd /tmp/redis-3.2.3 && make':
     timeout => 0,
-    require => Bash_exec['cd /tmp && tar xzf redis-3.0.3.tar.gz']
+    require => Bash_exec['cd /tmp && tar xzf redis-3.2.3.tar.gz']
   }
 
-  bash_exec { 'cd /tmp/redis-3.0.3 && make install':
+  bash_exec { 'cd /tmp/redis-3.2.3 && make install':
     timeout => 0,
-    require => Bash_exec['cd /tmp/redis-3.0.3 && make']
+    require => Bash_exec['cd /tmp/redis-3.2.3 && make']
   }
 }

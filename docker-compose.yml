@@ -1,5 +1,5 @@
 redis:
-  image: dockerizedrupal/redis:1.1.0
+  image: dockerizedrupal/redis:2.0.0
   hostname: redis
   ports:
     - "6379:6379"
@@ -8,7 +8,8 @@ redis:
   environment:
     - TIMEZONE=Etc/UTC
 redis-data:
-  image: dockerizedrupal/data:1.1.0
+  image: dockerizedrupal/redis:2.0.0
   hostname: redis-data
+  entrypoint: ["/bin/echo", "Data-only container for Redis."]
   volumes:
     - /redis

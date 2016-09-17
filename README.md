@@ -1,8 +1,6 @@
-# docker-redis
+# redis-for-docker
 
 A Docker image for [Redis](http://redis.io/).
-
-This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) initiative.
 
 ## Run the container
 
@@ -10,7 +8,8 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /redis \
-      dockerizedrupal/data:1.1.0
+      --entrypoint /bin/echo \
+      dockerizedrupal/redis:2.0.0 "Data-only container for Redis."
 
     CONTAINER="redis" && sudo docker run \
       --name "${CONTAINER}" \
@@ -19,20 +18,16 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       --volumes-from redis-data \
       -e TIMEZONE="Etc/UTC" \
       -d \
-      dockerizedrupal/redis:1.1.0
+      dockerizedrupal/redis:2.0.0
 
 ## Build the image
       
     TMP="$(mktemp -d)" \
-      && git clone https://github.com/dockerizedrupal/docker-redis.git "${TMP}" \
+      && git clone https://github.com/dockerizedrupal/redis-for-docker.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.1.0 \
-      && sudo docker build -t dockerizedrupal/redis:1.1.0 . \
+      && git checkout 2.0.0 \
+      && sudo docker build -t dockerizedrupal/redis:2.0.0 . \
       && cd -
-
-## Changing the container behaviour on runtime through environment variables
-
-    // TODO
 
 ## License
 
